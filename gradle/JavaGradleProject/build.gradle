@@ -1,0 +1,18 @@
+apply plugin: 'java'
+
+// Specify where to look for dependencies
+repositories {
+mavenCentral()
+}
+// Declare that the task testCompile requires the JUnit framework
+dependencies {
+testCompile "junit:junit:4.12"
+}
+
+// When running the task 'test'
+test {
+// Log passed/failed tests in the console (see also build/reports/tests):
+testLogging.events 'passed', 'failed'
+// This causes tests to always be re-run.
+dependsOn 'cleanTest'
+}
